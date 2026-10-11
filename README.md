@@ -8,7 +8,7 @@
 
 An AI email generator built with **FastAPI** and **Groq**. Tell it who the email is for, what it should achieve and which tone to use, and get a complete, ready-to-send draft in seconds. Then refine it, check it, translate it, save it and export it.
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white) ![Groq](https://img.shields.io/badge/Groq-llama--3.3--70b-F55036?style=for-the-badge) ![Firebase](https://img.shields.io/badge/Firebase-Firestore-FFCA28?style=for-the-badge&logo=firebase&logoColor=black) ![Vercel](https://img.shields.io/badge/Vercel-Deploy-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white) ![Groq](https://img.shields.io/badge/Groq-AI-orange?style=for-the-badge) ![Firebase](https://img.shields.io/badge/Firebase-Firestore-FFCA28?style=for-the-badge&logo=firebase&logoColor=black) ![Vercel](https://img.shields.io/badge/Vercel-Deploy-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge)
 
@@ -56,7 +56,7 @@ LetterLy started as a simple assignment: **build a FastAPI app that takes a reci
 | --- | --- |
 | A FastAPI backend | A FastAPI app with **22 API endpoints**, validation and error handling |
 | Recipient name, purpose and tone | Those three, plus length, language and sender name |
-| An LLM that writes the email | Groq `llama-3.3-70b-versatile` answering in JSON mode |
+| An LLM that writes the email | Groq `openai/gpt-oss-20b` answering in JSON mode |
 | A simple HTML page | A landing page and a dashboard with six views, light and dark themes, phone layout |
 | GitHub link and a screenshot | This repository, a setup guide, a deploy guide and the screenshots below |
 
@@ -155,7 +155,7 @@ sequenceDiagram
 | Layer | Technology | Why |
 | --- | --- | --- |
 | Backend | Python, FastAPI, Pydantic | Fast to write, automatic validation, interactive docs at `/docs` |
-| AI | Groq API, `llama-3.3-70b-versatile` | Fast inference, free tier, JSON response mode |
+| AI | Groq API, `openai/gpt-oss-20b` | Fast inference, free tier, JSON response mode |
 | Local storage | SQLite | Ships with Python, no setup |
 | Production storage | Firebase Firestore | Works on Vercel, where the disk is read-only |
 | Word export | python-docx | Real `.docx` files, including right-to-left Urdu |
@@ -243,7 +243,7 @@ Settings come from environment variables. Locally, put them in `.env`. On Vercel
 | `FIREBASE_SERVICE_ACCOUNT_B64` | On Vercel | Firebase service account key as one safe line. Create it with `python tools/encode_firebase_key.py key.json` |
 | `FIREBASE_SERVICE_ACCOUNT` | No | The same key as raw JSON, as an alternative |
 | `FIREBASE_SERVICE_ACCOUNT_FILE` | No | Path to the key file, handy for testing Firestore locally |
-| `GROQ_MODEL` | No | Overrides the model (default `llama-3.3-70b-versatile`) |
+| `GROQ_MODEL` | No | Overrides the model (default `openai/gpt-oss-20b`) |
 | `DATABASE_PATH` | No | Overrides the SQLite file location |
 
 The storage is chosen automatically: if a Firebase key is present the app uses **Firestore**, otherwise **SQLite**. `/api/health` tells you which one is active.
@@ -418,7 +418,7 @@ Press **Deploy**.
 **6. Check it.** Open `https://your-app.vercel.app/api/health`. You should see:
 
 ```json
-{ "status": "ok", "model": "llama-3.3-70b-versatile", "api_key_configured": true, "storage": "firestore" }
+{ "status": "ok", "model": "openai/gpt-oss-20b", "api_key_configured": true, "storage": "firestore" }
 ```
 
 Then open the home page, press **Get Started** and generate an email.
