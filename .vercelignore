@@ -1,0 +1,10 @@
+venv/
+.venv/
+__pycache__/
+*.db
+.env
+.env.*
+*firebase*adminsdk*.json
+tools/
+docs/
+tests/

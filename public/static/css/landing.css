@@ -1,0 +1,560 @@
+
+/* LetterLy — Original design with balanced spacing */
+
+.hero {
+  color: #fff;
+  padding: 0 clamp(18px, 5vw, 64px) 42px;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 520px at 78% 35%, rgba(92, 52, 210, 0.5), transparent 70%),
+    radial-gradient(600px 420px at 8% 95%, rgba(200, 50, 160, 0.28), transparent 70%),
+    #0a0620;
+}
+
+nav.top {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 0;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.logo i {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--grad);
+  display: grid;
+  place-items: center;
+  color: #fff;
+}
+
+nav.top a:not(.btn):not(.logo) {
+  color: #c9c4ee;
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+
+nav.top a:not(.btn):not(.logo):hover {
+  color: #fff;
+}
+
+.hero-in {
+  max-width: 1180px;
+  margin: 18px auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 24px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 5vw, 3.7rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.hero h1 em {
+  font-style: italic;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.05em;
+}
+
+.lead {
+  color: #cbc6ee;
+  max-width: 46ch;
+  margin: 16px 0 18px;
+}
+
+.trio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 20px;
+}
+
+.trio div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.82rem;
+  color: #b9b3e6;
+}
+
+.trio b {
+  display: block;
+  color: #fff;
+  font-weight: 600;
+}
+
+.ic {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #5a47b8;
+  background: rgba(124, 92, 255, 0.18);
+  display: grid;
+  place-items: center;
+  color: #c7b8ff;
+  flex: none;
+}
+
+.prompt {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  max-width: 560px;
+  padding: 6px 6px 6px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(160, 140, 255, 0.35);
+}
+
+.prompt input {
+  flex: 1;
+  min-width: 0;
+  background: none;
+  border: 0;
+  outline: 0;
+  color: #fff;
+  padding: 8px 0;
+}
+
+.prompt input::placeholder {
+  color: #a8a1d6;
+}
+
+.prompt .btn {
+  padding: 10px 14px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chip {
+  border: 1px solid rgba(160, 140, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
+  color: #d8d3f7;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.chip:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.art {
+  width: 100%;
+  height: auto;
+  max-height: 380px;
+}
+
+.hero-in > div:first-child > * {
+  animation: rise 0.7s both;
+}
+
+.hero-in > div:first-child > :nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.hero-in > div:first-child > :nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.hero-in > div:first-child > :nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.hero-in > div:first-child > :nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+/* Why choose LetterLy */
+
+.why {
+  color: #fff;
+  padding: 42px clamp(18px, 5vw, 64px);
+  background:
+    radial-gradient(800px 420px at 85% 0, rgba(92, 52, 210, 0.45), transparent 70%),
+    #0a0620;
+}
+
+.wi {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.why h2 {
+  font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+}
+
+.wsub {
+  color: #cbc6ee;
+  margin: 6px 0 20px;
+}
+
+.wg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.wg div {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(160, 140, 255, 0.25);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.wg i {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--grad);
+  display: grid;
+  place-items: center;
+  margin-bottom: 10px;
+}
+
+.wg b {
+  display: block;
+  font-weight: 600;
+}
+
+.wg span {
+  display: block;
+  color: #bdb7e8;
+  font-size: 0.82rem;
+  margin-top: 4px;
+}
+
+.cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 20px 24px;
+  border-radius: 20px;
+  background: linear-gradient(
+    100deg,
+    rgba(124, 92, 255, 0.35),
+    rgba(226, 85, 199, 0.3)
+  );
+  border: 1px solid rgba(190, 170, 255, 0.35);
+}
+
+.cta h3 {
+  font-size: 1.5rem;
+}
+
+.cta p {
+  color: #e3defa;
+}
+
+/* How it works and remaining sections */
+
+.sec {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 40px clamp(18px, 4vw, 28px) 0;
+}
+
+.sec > h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.sec > p {
+  color: var(--muted);
+  margin: 4px 0 16px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  counter-reset: s;
+}
+
+.steps div {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.steps div::before {
+  counter-increment: s;
+  content: counter(s);
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--grad);
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.steps b {
+  display: block;
+  font-weight: 600;
+}
+
+.steps span {
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.mob {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 32px;
+  align-items: center;
+}
+
+.mob ul {
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.mob li {
+  margin: 8px 0;
+}
+
+.phone {
+  width: 250px;
+  border: 8px solid #15163d;
+  border-radius: 36px;
+  background: var(--bg);
+  padding: 14px 12px 8px;
+  box-shadow: var(--shadow);
+}
+
+.phone .ph {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.phone .fk {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 9px;
+  padding: 8px 10px;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin: 5px 0 9px;
+}
+
+.phone .gbn {
+  background: var(--grad);
+  color: #fff;
+  text-align: center;
+  border-radius: 999px;
+  padding: 9px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+.phone .tab {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid var(--line);
+  margin-top: 14px;
+  padding-top: 8px;
+  font-size: 0.64rem;
+  color: var(--muted);
+}
+
+.quote {
+  border-radius: 22px;
+  padding: 32px 24px;
+  color: #fff;
+  text-align: center;
+  background:
+    radial-gradient(500px 300px at 80% 0, rgba(226, 85, 199, 0.35), transparent 70%),
+    linear-gradient(160deg, #241a63, #0c0925);
+}
+
+.quote p.serif {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  line-height: 1.3;
+}
+
+.av {
+  display: flex;
+  justify-content: center;
+  margin: 16px 0 8px;
+}
+
+.av i {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid #241a63;
+  margin-left: -8px;
+  display: grid;
+  place-items: center;
+  font-style: normal;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--c);
+  color: #fff;
+}
+
+.st {
+  color: #ffc857;
+  letter-spacing: 3px;
+}
+
+footer.site {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.82rem;
+  padding: 32px 16px 28px;
+}
+
+/* Tablet */
+
+@media (max-width: 960px) {
+  .hero-in {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .art {
+    max-height: 290px;
+  }
+
+  nav.top a:not(.btn):not(.logo) {
+    display: none;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .mob {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+  }
+}
+
+/* LetterLy — Slightly Larger Desktop Layout */
+@media (min-width: 961px) {
+  .hero-in {
+    max-width: 1240px;
+    gap: 30px;
+  }
+
+  .hero h1 {
+    font-size: clamp(3.2rem, 4.7vw, 4.1rem);
+    line-height: 1.1;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    margin: 17px 0 20px;
+  }
+
+  .art {
+    max-height: 900px;
+  }
+
+  .trio {
+    gap: 24px;
+    margin-bottom: 23px;
+  }
+
+  .trio div {
+    font-size: 0.88rem;
+  }
+
+  .ic {
+    width: 39px;
+    height: 39px;
+  }
+
+  .prompt {
+    max-width: 600px;
+    padding: 7px 7px 7px 20px;
+  }
+
+  .prompt input {
+    font-size: 1rem;
+  }
+
+  .chip {
+    padding: 7px 15px;
+    font-size: 0.84rem;
+  }
+
+  .why {
+    padding-top: 48px;
+    padding-bottom: 50px;
+  }
+
+  .why h2 {
+    font-size: 2.4rem;
+  }
+
+  .wg {
+    gap: 14px;
+  }
+
+  .wg div {
+    padding: 18px;
+  }
+
+  .wg i {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* Final desktop spacing adjustment */
+@media (min-width: 961px) {
+  .hero {
+    padding-bottom: 28px;
+  }
+
+  .hero-in {
+    margin-top: 8px;
+  }
+
+  .trio {
+    margin-bottom: 16px;
+  }
+
+  .why {
+    padding-top: 32px;
+  }
+
+  .wsub {
+    margin-bottom: 16px;
+  }
+}

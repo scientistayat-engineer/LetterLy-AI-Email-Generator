@@ -1,0 +1,13 @@
+.env
+venv/
+.venv/
+__pycache__/
+*.pyc
+emails.db
+.DS_Store
+.vscode/
+
+# Firebase keys and Vercel
+*firebase*adminsdk*.json
+serviceAccount*.json
+.vercel

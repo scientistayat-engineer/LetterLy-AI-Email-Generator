@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LetterLy - Dashboard</title>
+  <script>
+    try {
+      var t = localStorage.getItem("letterly-theme");
+      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%237c5cff%27/%3E%3Cpath d=%27M7 11h18v11H7zM7 11l9 7 9-7%27 fill=%27none%27 stroke=%27white%27 stroke-width=%272%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/base.css">
+  <link rel="stylesheet" href="/static/css/app.css">
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 17v4"/><path d="M17 19h4"/></symbol>
+      <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15v3"/><path d="M12 10v8"/><path d="M17 6v12"/></symbol>
+      <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></symbol>
+      <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></symbol>
+      <symbol id="i-printer" viewBox="0 0 24 24"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></symbol>
+      <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M8 16H3v5"/></symbol>
+      <symbol id="i-shorten" viewBox="0 0 24 24"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></symbol>
+      <symbol id="i-language" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+      <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2V17h6v-.3c0-.8.4-1.5 1-2A7 7 0 0 0 12 2Z"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="app">
+    <aside class="side" aria-label="Sidebar">
+      <a class="logo" href="/"><i><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></i>LetterLy</a>
+      <nav class="nav" id="nav" aria-label="Dashboard">
+        <a href="#/generate" data-view="generate"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg>Generate Email</a>
+        <a href="#/templates" data-view="templates"><svg class="ico" aria-hidden="true"><use href="#i-grid"/></svg>Templates</a>
+        <a href="#/history" data-view="history"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>History</a>
+        <a href="#/favorites" data-view="favorites"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg>Favorites</a>
+        <a href="#/analytics" data-view="analytics"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg>Analytics</a>
+        <a href="#/settings" data-view="settings"><svg class="ico" aria-hidden="true"><use href="#i-gear"/></svg>Settings</a>
+      </nav>
+      <a class="side-home" href="/"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg>Back to home</a>
+    </aside>
+
+    <main class="main">
+      <header class="top">
+        <div><h1 id="vt">Good morning</h1><p id="vs">Let's create something amazing today.</p></div>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch theme">
+          <svg class="ico theme-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+          <svg class="ico theme-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+        </button>
+      </header>
+      <div class="notice" id="notice" role="alert" hidden></div>
+
+      <!-- ===== Generate ===== -->
+      <section data-panel="generate">
+        <div class="work">
+          <form class="card" id="form" novalidate>
+            <h2 class="ct">Create your email</h2>
+            <fieldset class="seg-field">
+              <legend class="sr-only">What do you want to do</legend>
+              <div class="seg">
+                <label><input type="radio" name="mode" value="new" checked><span>New email</span></label>
+                <label><input type="radio" name="mode" value="reply"><span>Reply to an email</span></label>
+              </div>
+            </fieldset>
+
+            <div class="field" id="receivedField" hidden>
+              <label for="received">Email you received</label>
+              <textarea class="fld" id="received" rows="6" maxlength="6000" placeholder="Paste the email you want to reply to"></textarea>
+              <p class="err" id="receivedError" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="recipient" id="recipientLabel">Recipient name</label>
+              <input class="fld" id="recipient" type="text" maxlength="80" placeholder="e.g. John Smith" autocomplete="off">
+              <p class="err" id="recipientError" hidden></p>
+            </div>
+
+            <div class="field">
+              <div class="label-row">
+                <label for="purpose" id="purposeLabel">Email purpose</label>
+                <button type="button" class="mic" id="micBtn" aria-pressed="false" hidden><svg class="ico" aria-hidden="true"><use href="#i-mic"/></svg><span id="micLabel">Speak</span></button>
+              </div>
+              <textarea class="fld" id="purpose" rows="4" maxlength="800" placeholder="Ask for a two-day extension on the data science assignment because of a family event"></textarea>
+              <div class="label-row"><p class="err" id="purposeError" hidden></p><span class="counter" id="purposeCount">0 / 800</span></div>
+              <p class="mini">Start from a template</p>
+              <div class="chips-row" id="chips"></div>
+            </div>
+
+            <fieldset class="seg-field">
+              <legend>Tone</legend>
+              <div class="seg">
+                <label><input type="radio" name="tone" value="Professional" checked><span>Professional</span></label>
+                <label><input type="radio" name="tone" value="Friendly"><span>Friendly</span></label>
+                <label><input type="radio" name="tone" value="Formal"><span>Formal</span></label>
+              </div>
+            </fieldset>
+
+            <div class="two-col">
+              <fieldset class="seg-field">
+                <legend>Length</legend>
+                <div class="seg">
+                  <label><input type="radio" name="length" value="Short"><span>Short</span></label>
+                  <label><input type="radio" name="length" value="Medium" checked><span>Medium</span></label>
+                  <label><input type="radio" name="length" value="Detailed"><span>Long</span></label>
+                </div>
+              </fieldset>
+              <fieldset class="seg-field">
+                <legend>Language</legend>
+                <div class="seg">
+                  <label><input type="radio" name="language" value="English" checked><span>English</span></label>
+                  <label><input type="radio" name="language" value="Urdu"><span class="urdu-label">اردو</span></label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="field">
+              <label for="sender">Your name <span class="optional">optional</span></label>
+              <input class="fld" id="sender" type="text" maxlength="80" placeholder="Uses the name saved in Settings" autocomplete="name">
+            </div>
+
+            <button class="btn go" id="generateBtn" type="submit"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg><span id="generateLabel">Generate Email</span></button>
+            <div class="form-links"><button type="button" class="linkbtn" id="saveTplBtn">Save this as a template</button><span>Ctrl + Enter in the purpose box generates</span></div>
+          </form>
+
+          <section class="gen" id="gen" aria-live="polite">
+            <div class="gen-empty" id="genEmpty">
+              <svg viewBox="0 0 140 150" width="120" height="128" aria-hidden="true">
+                <defs><linearGradient id="rb2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2670"/><stop offset="1" stop-color="#15133f"/></linearGradient></defs>
+                <g class="fl"><ellipse cx="70" cy="142" rx="40" ry="6" fill="#000" opacity=".3"/>
+                <line x1="70" y1="14" x2="70" y2="2" stroke="#9b82ff" stroke-width="3"/><circle cx="70" cy="0" r="5" fill="#35e0c2"/>
+                <rect x="18" y="14" width="104" height="80" rx="30" fill="url(#rb2)" stroke="#9b82ff" stroke-width="2.5"/><rect x="32" y="32" width="76" height="42" rx="21" fill="#0b0a2a"/>
+                <ellipse class="eye" cx="52" cy="52" rx="8" ry="9" fill="#35e0c2"/><ellipse class="eye" cx="88" cy="52" rx="8" ry="9" fill="#35e0c2"/>
+                <path d="M60 64q10 8 20 0" stroke="#35e0c2" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <rect x="36" y="98" width="68" height="40" rx="18" fill="url(#rb2)" stroke="#9b82ff" stroke-width="2.5"/></g>
+              </svg>
+              <h2>Your email will appear here</h2>
+              <p>Fill in the form and press Generate. You can then shorten it, change its tone, fix grammar and check its quality.</p>
+            </div>
+
+            <div id="genBody" hidden>
+              <div class="gh">
+                <h2>Generated email</h2>
+                <div class="gh-actions">
+                  <button class="ghost" id="favBtn" type="button" aria-pressed="false"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><span>Favorite</span></button>
+                  <button class="ghost" id="copyBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-copy"/></svg>Copy</button>
+                  <button class="ghost" id="txtBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg>Text</button>
+                  <button class="ghost" id="wordBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-file"/></svg>Word</button>
+                  <button class="ghost" id="pdfBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-printer"/></svg>PDF</button>
+                  <button class="ghost" id="mailBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg>Mail</button>
+                  <button class="ghost" id="regenBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-refresh"/></svg>Regenerate</button>
+                </div>
+              </div>
+
+              <details class="orig" id="origBox" hidden><summary>Email you replied to</summary><pre id="origText"></pre></details>
+
+              <div class="gl"><label for="subjectInput">Subject</label><button class="linkbtn light" id="subjectsBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg>Suggest subjects</button></div>
+              <input class="box" id="subjectInput" type="text" maxlength="200">
+              <div class="suggest" id="subjectSuggest" hidden>
+                <div class="suggest-head"><span>Pick a subject line</span><button class="x" id="suggestClose" type="button" aria-label="Close suggestions"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+                <div class="suggest-list" id="suggestList"></div>
+              </div>
+
+              <div class="gl"><label for="bodyInput">Email body</label></div>
+              <textarea class="box eb" id="bodyInput" spellcheck="true"></textarea>
+              <div class="meta"><span><span class="tag" id="kindTag" hidden>Reply</span> <span class="tag" id="toneTag"></span></span><span id="counts"></span><span id="saveState">Edits save automatically</span></div>
+
+              <div class="tags"><span>Tags</span><span class="tag-list" id="tagList"></span><input id="tagInput" type="text" maxlength="20" placeholder="Add a tag, press Enter" aria-label="Add a tag"></div>
+
+              <div class="gb" id="scoreRow">
+                <div class="ring" id="ring" style="--p:0"><b id="ringNum">--</b></div>
+                <div class="qs"><b>AI quality score</b><small id="verdict">Run a check to see how this email reads.</small><button class="ghost" id="qualityBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-gauge"/></svg>Check quality</button></div>
+              </div>
+
+              <div class="acts">
+                <button id="shortenBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-shorten"/></svg>Make it shorter</button>
+                <button id="longerBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-expand"/></svg>Make it longer</button>
+                <button id="formalBtn" type="button">Make it more formal</button>
+                <button id="friendlyBtn" type="button">Make it more friendly</button>
+                <button id="ctaBtn" type="button">Add call to action</button>
+                <button id="langBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-language"/></svg><span id="langLabel">Translate to Urdu</span></button>
+                <button id="toneBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-bulb"/></svg>Detect tone</button>
+                <button id="grammarBtn" type="button"><svg class="ico" aria-hidden="true"><use href="#i-gauge"/></svg>Fix grammar</button>
+              </div>
+
+              <form class="tune" id="tuneForm" novalidate>
+                <label class="sr-only" for="tuneInput">Ask for a change</label>
+                <input id="tuneInput" type="text" maxlength="300" placeholder="Ask for a change, like: make it more polite" autocomplete="off">
+                <button class="btn" id="tuneBtn" type="submit">Apply</button>
+              </form>
+
+              <div class="out" id="tonePanel" hidden></div>
+              <div class="out" id="grammarPanel" hidden></div>
+              <div class="out" id="tipsPanel" hidden></div>
+            </div>
+          </section>
+        </div>
+
+        <div class="card thread">
+          <h2 class="ct">Thread summary</h2>
+          <p class="sub">Paste a long email thread to get the gist, the questions to answer and any deadlines.</p>
+          <label class="sr-only" for="threadInput">Email thread</label>
+          <textarea class="fld" id="threadInput" rows="5" maxlength="8000" placeholder="Paste the email thread here"></textarea>
+          <button class="btn" id="summarizeBtn" type="button">Summarize thread</button>
+          <div class="sum" id="sumOut" hidden></div>
+        </div>
+      </section>
+
+      <!-- ===== Templates ===== -->
+      <section data-panel="templates" hidden>
+        <div class="card">
+          <div class="bar"><h2 class="ct">Email templates</h2>
+            <label class="search"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg><input id="tplSearch" type="search" placeholder="Search templates" aria-label="Search templates" autocomplete="off"></label></div>
+          <div class="tg" id="tplGrid"></div>
+        </div>
+      </section>
+
+      <!-- ===== History ===== -->
+      <section data-panel="history" hidden>
+        <div class="card">
+          <div class="bar"><h2 class="ct">Email history</h2>
+            <label class="search"><svg class="ico" aria-hidden="true"><use href="#i-search"/></svg><input id="histSearch" type="search" placeholder="Search your emails" aria-label="Search your emails" autocomplete="off"></label></div>
+          <div class="filters" id="filterBar" aria-label="Filter emails"></div>
+          <div class="hl" id="histList"></div>
+        </div>
+      </section>
+
+      <!-- ===== Favorites ===== -->
+      <section data-panel="favorites" hidden>
+        <div class="card"><h2 class="ct">Favorites</h2><div class="hl" id="favList"></div></div>
+      </section>
+
+      <!-- ===== Analytics ===== -->
+      <section data-panel="analytics" hidden>
+        <div class="stats">
+          <div class="card"><span>Emails written</span><b id="stTotal">0</b></div>
+          <div class="card"><span>Average quality</span><b id="stQuality">n/a</b></div>
+          <div class="card"><span>Time saved</span><b id="stSaved">0 min</b></div>
+          <div class="card"><span>Favorite tone</span><b id="stTone">n/a</b></div>
+        </div>
+        <div class="work two" style="margin-top:20px">
+          <div class="card"><h2 class="ct">Tone mix</h2><div id="toneMix"></div></div>
+          <div class="card"><h2 class="ct">Emails this week</h2><div class="wk" id="weekChart"></div></div>
+        </div>
+        <div class="card" style="margin-top:20px"><h2 class="ct">What you write most</h2><div id="catMix"></div></div>
+      </section>
+
+      <!-- ===== Settings ===== -->
+      <section data-panel="settings" hidden>
+        <form class="card narrow" id="setForm" novalidate>
+          <h2 class="ct">Settings</h2>
+          <div class="field"><label for="setName">Your name (used in sign-offs)</label><input class="fld" id="setName" type="text" maxlength="80" placeholder="Your name" autocomplete="name"></div>
+          <div class="field"><label for="setTone">Default tone</label>
+            <select class="fld" id="setTone"><option>Professional</option><option>Friendly</option><option>Formal</option></select></div>
+          <div class="field"><label for="setLang">Default language</label>
+            <select class="fld" id="setLang"><option>English</option><option>Urdu</option></select></div>
+          <label class="sw"><input type="checkbox" id="setAnim"> Typing animation</label>
+          <label class="sw"><input type="checkbox" id="setScore"> Show AI quality score</label>
+          <button class="btn go" type="submit">Save settings</button>
+          <hr>
+          <h3>Danger zone</h3>
+          <p class="sub">Delete every saved email. Templates and settings stay.</p>
+          <button class="btn-danger" id="clearAllBtn" type="button">Delete all emails</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <nav class="tabbar" id="tabbar" aria-label="Dashboard">
+    <a href="#/generate" data-view="generate"><svg class="ico" aria-hidden="true"><use href="#i-spark"/></svg>Create</a>
+    <a href="#/templates" data-view="templates"><svg class="ico" aria-hidden="true"><use href="#i-grid"/></svg>Templates</a>
+    <a href="#/history" data-view="history"><svg class="ico" aria-hidden="true"><use href="#i-clock"/></svg>History</a>
+    <a href="#/analytics" data-view="analytics"><svg class="ico" aria-hidden="true"><use href="#i-chart"/></svg>Stats</a>
+    <a href="#/settings" data-view="settings"><svg class="ico" aria-hidden="true"><use href="#i-gear"/></svg>Settings</a>
+  </nav>
+
+  <dialog class="dialog" id="tplDialog" aria-labelledby="tplTitle">
+    <form id="tplSaveForm" novalidate>
+      <div class="dialog-head"><h2 id="tplTitle">Save as template</h2><button class="x" id="tplClose" type="button" aria-label="Close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button></div>
+      <p class="sub">Saves the purpose, tone, length and language from the form.</p>
+      <label for="tplName">Template name</label>
+      <input class="fld" id="tplName" type="text" maxlength="40" placeholder="e.g. Assignment extension" autocomplete="off">
+      <p class="err" id="tplError" hidden></p>
+      <button class="btn go" type="submit">Save template</button>
+    </form>
+  </dialog>
+
+  <div id="printSheet" hidden></div>
+  <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
