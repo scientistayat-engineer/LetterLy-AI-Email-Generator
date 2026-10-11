@@ -8,6 +8,11 @@
 
 An AI email generator built with **FastAPI** and **Groq**. Tell it who the email is for, what it should achieve and which tone to use, and get a complete, ready-to-send draft in seconds. Then refine it, check it, translate it, save it and export it.
 
+## 🚀 Live Demo
+
+**Try LetterLy here:** [Open Live Application](https://letter-ly-ai-email-generator.vercel.app)
+
+
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white) ![Groq](https://img.shields.io/badge/Groq-AI-orange?style=for-the-badge) ![Firebase](https://img.shields.io/badge/Firebase-Firestore-FFCA28?style=for-the-badge&logo=firebase&logoColor=black) ![Vercel](https://img.shields.io/badge/Vercel-Deploy-000000?style=for-the-badge&logo=vercel&logoColor=white)
 
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white) ![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge)
@@ -415,7 +420,7 @@ git push -u origin main
 
 Press **Deploy**.
 
-**6. Check it.** Open `https://your-app.vercel.app/api/health`. You should see:
+**6. Check it.** Open `https://letter-ly-ai-email-generator.vercel.app//api/health`. You should see:
 
 ```json
 { "status": "ok", "model": "openai/gpt-oss-20b", "api_key_configured": true, "storage": "firestore" }
